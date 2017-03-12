@@ -8,13 +8,13 @@
     if (typeof define === "function" && define.amd) {
         define(['angular', 'timepicker'], factory);
     } else if (typeof exports === "object") {
-        module.exports = factory(require('angular'), require('timepicker'));
+        module.exports = factory(require('angular'));
     } else {
-        global.timepickerDirective = factory(global.angular, global.timepicker);
+        global.timepickerDirective = factory(global.angular);
     }
 })(this, function(angular) {
     'use strict';
-    
+
     angular.module('ui.timepicker', [])
         .value('uiTimepickerConfig', {
             'step': 15
