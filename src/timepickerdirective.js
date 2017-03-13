@@ -8,9 +8,9 @@
     if (typeof define === "function" && define.amd) {
         define(['angular', 'timepicker'], factory);
     } else if (typeof exports === "object") {
-        module.exports = factory(require('angular'));
+        module.exports = factory(require('angular'), require('timepicker'));
     } else {
-        global.timepickerDirective = factory(global.angular);
+        global.timepickerDirective = factory(global.angular, global.timepicker);
     }
 })(this, function(angular) {
     'use strict';
