@@ -6,13 +6,13 @@
 
 (function(global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(['angular', 'timepicker'], factory);
+        define(['angular', 'jquery', 'timepicker'], factory);
     } else if (typeof exports === "object") {
-        module.exports = factory(require('angular'), require('timepicker'));
+        module.exports = factory(require('angular'), require('jquery'), require('timepicker'));
     } else {
-        global.timepickerDirective = factory(global.angular, global.timepicker);
+        global.timepickerDirective = factory(global.angular, global.jQuery, global.timepicker);
     }
-})(this, function(angular) {
+})(this, function(angular, $) {
     'use strict';
 
     angular.module('ui.timepicker', [])
@@ -40,6 +40,8 @@
                 priority: 1,
                 link: function(scope, element, attrs, ngModel) {
                     'use strict';
+                    element = $(element);
+
                     var config = angular.copy(uiTimepickerConfig);
                     var asMoment = config.asMoment || false;
                     delete config.asMoment;
